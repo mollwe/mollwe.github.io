@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://mollwe.se/2017/11/27/hello-hexo/build-configuration.png">
 <meta property="og:image" content="http://mollwe.se/2017/11/27/hello-hexo/release-configuration.png">
-<meta property="og:updated_time" content="2017-11-27T20:05:12.959Z">
+<meta property="og:updated_time" content="2017-11-27T20:20:14.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Hexo - Setup with Visual Studio Team Services CI&#x2F;CD, GitHub pages and Cloudflare">
 <meta name="twitter:description" content="I no longer felt no need to have a full fledged wordpress as I’m not using this platform much. I looked around for static page generators and I decided for hexo. Testing it out for now. Going for simp">
@@ -129,11 +129,11 @@
 <h3 id="Visual-Studio-Team-Services"><a href="#Visual-Studio-Team-Services" class="headerlink" title="Visual Studio Team Services"></a>Visual Studio Team Services</h3><p>I’ve registered an account VSTS, free for up to 5 users. Created a new project for named mollwhexo. Pushed repo to the project.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add origin https://mollwe.visualstudio.com/DefaultCollection/_git/mollwhexo</span><br><span class="line">git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
 <p>Next step was to setup continuous integration in VSTS. Go to <code>Build and Release -&gt; Builds -&gt; New</code>. My looks like below.</p>
-<p><div id="BuildConfiguration"></div><br><img src="/2017/11/27/hello-hexo/build-configuration.png" title="Build configuration"><br>You can open the exported build configuration .</p>
+<p><div id="BuildConfiguration"></div><br><img src="/2017/11/27/hello-hexo/build-configuration.png" title="Build configuration"><br>You can open the exported build configuration [here](assets/build-configuration.json.</p>
 <p>It basically does this</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
 <p>So no it builds automatically on new pushes to <code>master</code> branch. Next up is continuous delivery. I’ve made release configuration. Added ci as artifact and then added a new environment for Github.</p>
-<p><div id="ReleaseConfiguration"></div><br><img src="/2017/11/27/hello-hexo/release-configuration.png" title="Release configuration"><br>You can open the exported release configuration .</p>
+<p><div id="ReleaseConfiguration"></div><br><img src="/2017/11/27/hello-hexo/release-configuration.png" title="Release configuration"><br>You can open the exported release configuration <a href="assets/release-configuration.json">here</a>.</p>
 <p>Now, everytime the a build is performed a deployment is also done.</p>
 <h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><p>I set up a GitHub page for my user by creating a repo named <code>mollwe.github.io</code>. To be able to push from VSTS I added a deploy key. First I created a SSH RSA key pair.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096</span><br></pre></td></tr></table></figure>
