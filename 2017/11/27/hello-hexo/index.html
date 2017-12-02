@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://mollwe.se/2017/11/27/hello-hexo/build-configuration.png">
 <meta property="og:image" content="http://mollwe.se/2017/11/27/hello-hexo/release-configuration.png">
-<meta property="og:updated_time" content="2017-12-02T00:35:43.751Z">
+<meta property="og:updated_time" content="2017-12-02T04:34:10.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Hexo - Setup with Visual Studio Team Services CI&#x2F;CD, GitHub pages and Cloudflare">
 <meta name="twitter:description" content="I no longer felt a need to have a full fledged Wordpress as I’m not using this platform much. I looked around alternatives and found some interesting static site generators. I decided to go for hexo f">
@@ -205,16 +205,13 @@
 
 
     <!-- Disqus Comments -->
+    <script src="/js/disqusloader.js"></script>
     <script type="text/javascript">
-        var disqus_shortname = 'mollwe';
+        if(typeof disqusLoader === 'undefined') 
+            return;
 
-        (function(){
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }());
+        var disqus_shortname = 'mollwe';
+        disqusLoader('#disqus_thread', { scriptUrl: 'https://' + disqus_shortname + '.disqus.com/embed.js' });
     </script>
 
 

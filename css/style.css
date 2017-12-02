@@ -287,6 +287,16 @@ main h3 a:hover {
   margin-bottom: 5px;
 }
 
+.item-list .item a + span {
+  display: block;
+}
+
+@media (min-width: 480px) {
+  .item-list .item a + span {
+    display: inline;
+  }
+}
+
 article header .posttitle {
   margin-bottom: 0;
   text-transform: none;
@@ -398,7 +408,7 @@ article .content p {
   color: #777;
   font-size: 11px;
   width: 100%;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto 0 auto;
   vertical-align: top;
   text-align: center;
 }
@@ -444,11 +454,6 @@ article .content p {
 }
 
 @media (min-width: 39rem) {
-  #footer {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
   #footer .footer-left {
     float: left;
   }

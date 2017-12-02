@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Adam Ydenius">
 <meta property="og:description" content="Codex VitaeTBD Earlier versions 2017">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-02T00:35:43.753Z">
+<meta property="og:updated_time" content="2017-12-02T04:34:10.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codex Vitae">
 <meta name="twitter:description" content="Codex VitaeTBD Earlier versions 2017">
@@ -119,16 +119,13 @@
 
 
     <!-- Disqus Comments -->
+    <script src="/js/disqusloader.js"></script>
     <script type="text/javascript">
-        var disqus_shortname = 'mollwe';
+        if(typeof disqusLoader === 'undefined') 
+            return;
 
-        (function(){
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }());
+        var disqus_shortname = 'mollwe';
+        disqusLoader('#disqus_thread', { scriptUrl: 'https://' + disqus_shortname + '.disqus.com/embed.js' });
     </script>
 
 
