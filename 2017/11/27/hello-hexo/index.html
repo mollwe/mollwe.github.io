@@ -6,36 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="I no longer felt no need to have a full fledged wordpress as I’m not using this platform much. I looked around for static page generators and I decided for hexo">
+    <meta name="description" content="I no longer felt a need to have a full fledged Wordpress as I’m not using this platform much. I looked around alternatives and found some interesting static sit">
 <meta name="keywords" content="hexo,vsts,github,cloudflare">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello Hexo - Setup with Visual Studio Team Services CI&#x2F;CD, GitHub pages and Cloudflare">
 <meta property="og:url" content="http://mollwe.se/2017/11/27/hello-hexo/index.html">
 <meta property="og:site_name" content="Adam Ydenius">
-<meta property="og:description" content="I no longer felt no need to have a full fledged wordpress as I’m not using this platform much. I looked around for static page generators and I decided for hexo. Testing it out for now. Going for simp">
+<meta property="og:description" content="I no longer felt a need to have a full fledged Wordpress as I’m not using this platform much. I looked around alternatives and found some interesting static site generators. I decided to go for hexo f">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://mollwe.se/2017/11/27/hello-hexo/build-configuration.png">
 <meta property="og:image" content="http://mollwe.se/2017/11/27/hello-hexo/release-configuration.png">
-<meta property="og:updated_time" content="2017-11-27T20:20:14.285Z">
+<meta property="og:updated_time" content="2017-12-02T00:35:43.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Hexo - Setup with Visual Studio Team Services CI&#x2F;CD, GitHub pages and Cloudflare">
-<meta name="twitter:description" content="I no longer felt no need to have a full fledged wordpress as I’m not using this platform much. I looked around for static page generators and I decided for hexo. Testing it out for now. Going for simp">
+<meta name="twitter:description" content="I no longer felt a need to have a full fledged Wordpress as I’m not using this platform much. I looked around alternatives and found some interesting static site generators. I decided to go for hexo f">
 <meta name="twitter:image" content="http://mollwe.se/2017/11/27/hello-hexo/build-configuration.png">
     
     
         
           
-              <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico">
           
         
         
           
-            <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png" sizes="192x192">
           
         
         
           
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
           
         
     
@@ -46,7 +46,7 @@
     <!-- rss -->
     
     
-      <link rel="alternate" href="/atom.xml" title="Adam Ydenius" type="application/atom+xml" />
+    <link rel="alternate" href="/atom.xml" title="Adam Ydenius" type="application/atom+xml" />
     
 </head>
 
@@ -55,7 +55,7 @@
   <a href="/">
   
     
-      <div id="logo" style="background-image: url(/images/logo.png);"></div>
+      <div id="logo" style="background-image: url(/images/logo-50.png);"></div>
     
   
     <div id="title">
@@ -99,7 +99,6 @@
 
       
     <div class="article-tag">
-        <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/cloudflare/">cloudflare</a>, <a class="tag-link" href="/tags/github/">github</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/vsts/">vsts</a>
     </div>
 
@@ -107,53 +106,57 @@
     </div>
   </header>
   <div class="content" itemprop="articleBody">
-    <p>I no longer felt no need to have a full fledged wordpress as I’m not using this platform much. I looked around for static page generators and I decided for <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a>. Testing it out for now. Going for simple simple design with focus on content (which of there are almost none).</p>
+    <p>I no longer felt a need to have a full fledged Wordpress as I’m not using this platform much. I looked around alternatives and found some interesting static site generators. I decided to go for <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a> for now, it seems really nice. Going for simple simple design with focus on content (which of there are almost none).</p>
 <a id="more"></a>
 <h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>The site is now hosted with <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub pages</a> and I’m using <a href="https://cloudflare.com" target="_blank" rel="noopener">Cloudflare</a> for DNS, caching and enabling SSL for custom domain. I’ve automated deploy with <a href="https://visualstudio.com" target="_blank" rel="noopener">Visual Studio Team Services</a>, when pushing to master branch on VSTS repo it automatically generates static content during build and then automatically creates a release and deploys it to my GitHub Pages repository.</p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo is a static page generator based on <a href="https://nodejs.org" target="_blank" rel="noopener">NodeJS</a>. Installed it first. Then I installed the hexo-cli globally.</p>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo is a static site generator based on <a href="https://nodejs.org" target="_blank" rel="noopener">NodeJS</a> where you write content with <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>. I installed the latest NodeJS and started to follow hexo getting started guide. First I installed the hexo-cli globally.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>Created a new project named mollwhexo.</p>
+<p>Then I created a new project named mollwhexo.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init mollwhexo</span><br><span class="line">cd mollwhexo</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>Then I started to look for a <a href="https://hexo.io/themes/" target="_blank" rel="noopener">theme</a>, I liked the cactus-dark theme but I had som modifications done. </p>
-<p>Then I could serve it locally with hexo server command.</p>
+<p>After that I started to look for a <a href="https://hexo.io/themes/" target="_blank" rel="noopener">theme</a>. I liked the cactus-dark theme but I had som modifications done to it, I also installed some plugins that the theme required.</p>
+<p>From now on I could serve it locally with hexo server command.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>Migrated one post from my old wordpress with migrator plugin for wordpress. You can find all plugins <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">here</a>.</p>
-<p>Started with this post with new post command.</p>
+<p>From my last Wordpress installation I had a post I wanted to migrate. I found the migrator plugin for Wordpress and had no issues converting the post, even seems to have the same permalink. There are several interesting plugins found on hexo’s site <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">here</a>.</p>
+<p>I started with this post with the new post command.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post hello-hexo</span><br></pre></td></tr></table></figure>
-<p>Initialized git repo.</p>
+<p>Initialized a git repository.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>Made a <code>.gitignore</code></p>
+<p>Added a <code>.gitignore</code> file.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure>
-<p>Then commited the first commit.</p>
+<p>Finally added all and commited.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m "Init"</span><br></pre></td></tr></table></figure>
-<h3 id="Visual-Studio-Team-Services"><a href="#Visual-Studio-Team-Services" class="headerlink" title="Visual Studio Team Services"></a>Visual Studio Team Services</h3><p>I’ve registered an account VSTS, free for up to 5 users. Created a new project for named mollwhexo. Pushed repo to the project.</p>
+<h3 id="Visual-Studio-Team-Services"><a href="#Visual-Studio-Team-Services" class="headerlink" title="Visual Studio Team Services"></a>Visual Studio Team Services</h3><p>I’ve registered an account VSTS, which is free for up to 5 users. Created a new project named <code>mollwhexo</code> and pushed local repository to the project.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add origin https://mollwe.visualstudio.com/DefaultCollection/_git/mollwhexo</span><br><span class="line">git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
-<p>Next step was to setup continuous integration in VSTS. Go to <code>Build and Release -&gt; Builds -&gt; New</code>. My looks like below.</p>
-<p><div id="BuildConfiguration"></div><br><img src="/2017/11/27/hello-hexo/build-configuration.png" title="Build configuration"><br>You can open the exported build configuration [here](assets/build-configuration.json.</p>
-<p>It basically does this</p>
+<p>Next step was to setup continuous integration in VSTS. Created by going to <code>Build and Release -&gt; Builds -&gt; New</code>. My configuration looks like below.</p>
+<p><div id="BuildConfiguration"></div><br><img src="/2017/11/27/hello-hexo/build-configuration.png" title="Build configuration"><br>You can open the exported build configuration <a href="/assets/build-configuration.json">here</a>.</p>
+<p>It basically does this:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-<p>So no it builds automatically on new pushes to <code>master</code> branch. Next up is continuous delivery. I’ve made release configuration. Added ci as artifact and then added a new environment for Github.</p>
-<p><div id="ReleaseConfiguration"></div><br><img src="/2017/11/27/hello-hexo/release-configuration.png" title="Release configuration"><br>You can open the exported release configuration <a href="assets/release-configuration.json">here</a>.</p>
-<p>Now, everytime the a build is performed a deployment is also done.</p>
-<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><p>I set up a GitHub page for my user by creating a repo named <code>mollwe.github.io</code>. To be able to push from VSTS I added a deploy key. First I created a SSH RSA key pair.</p>
+<p>I hade an issue with generate because the theme was in it’s own git repository and therefore the files weren’t commited. I removed the <code>.git</code> folder inside the theme and then added and commited all the theme files.</p>
+<p>So now it builds automatically on new pushes to <code>master</code> branch. Next up was continuous delivery. I had a release configuration made <code>Build and Release -&gt; Releases</code>. Added <code>mollwhexo-CI</code> (the result from build) as an artifact and then set up a new environment for GitHub. The commands in this release configuration is run with the <code>Hosted Linux (Preview)</code> agent queue so you know.</p>
+<p><div id="ReleaseConfiguration"></div><br><img src="/2017/11/27/hello-hexo/release-configuration.png" title="Release configuration"><br>You can open the exported release configuration <a href="/assets/release-configuration.json">here</a>.</p>
+<p>Now, everytime the a build is performed a deployment to GitHub Pages also follows.</p>
+<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><p>A GitHub page for my user was set up by creating a repo named <code>mollwe.github.io</code> (<a href="https://github.com/mollwe/mollwe.github.io" target="_blank" rel="noopener">repo</a>). To be able to push from VSTS I added a deploy key. First I created a SSH RSA key pair.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096</span><br></pre></td></tr></table></figure>
-<p>I created a <code>.ssh</code> folder and copied both private (<code>id_rsa</code>) and public key (<code>id_rsa.pub</code>) there. I also created a SSH config file.</p>
+<p>Then I created a folder named <code>.ssh</code> and copied both private (<code>id_rsa</code>) and public key (<code>id_rsa.pub</code>) there. I also created a SSH config file (simply named <code>config</code>).</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">host github.com</span><br><span class="line"> HostName github.com</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa</span><br><span class="line"> User git</span><br></pre></td></tr></table></figure>
-<p>I copied the content of the public key into deploy keys on repository settings on GitHub. I added a step to create another artifact for SSH in <a href="#BuildConfiguration">Build Configuration</a>. Then I also created some steps in <a href="#ReleaseConfiguran">Relaese Configuration</a> to setup connecting to github with <code>ssh</code> instead of <code>https</code>.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Setup SSH</span></span><br><span class="line">echo Make directory for ~/.ssh</span><br><span class="line">mkdir ~/.ssh</span><br><span class="line">echo Move files from ssh artifact into ~/.ssh</span><br><span class="line">mv ./ssh/* ~/.ssh/</span><br><span class="line">echo chmod id_rsa</span><br><span class="line">chmod 400 ~/.ssh/id_rsa</span><br><span class="line">echo Setup known hosts</span><br><span class="line">ssh-keyscan -t rsa github.com &gt;&gt; ~/.ssh/known_hosts</span><br><span class="line"><span class="meta">#</span><span class="bash">ssh -v -T git@github.com <span class="comment"># Remove hashtag at beginning of row to verify connection</span></span></span><br></pre></td></tr></table></figure>
-<p>To update the git repository I first clone from GitHub.</p>
+<p>The content of the public key was copied into deploy keys on repository settings on GitHub. I added a step to create another artifact for SSH in <a href="#BuildConfiguration">Build Configuration</a>. And in <a href="#ReleaseConfiguran">Release Configuration</a> I created some steps to set up connecting to GitHub with <code>ssh</code> instead of <code>https</code>, this is required to be able to push from VSTS without using the real username/password at GitHub.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Setup SSH</span></span><br><span class="line">echo Make directory for ~/.ssh</span><br><span class="line">mkdir ~/.ssh</span><br><span class="line">echo Move files from ssh artifact into ~/.ssh</span><br><span class="line">mv ./ssh/* ~/.ssh/</span><br><span class="line">echo chmod id_rsa</span><br><span class="line">chmod 400 ~/.ssh/id_rsa</span><br><span class="line">echo Add github.com to known hosts</span><br><span class="line">ssh-keyscan -t rsa github.com &gt;&gt; ~/.ssh/known_hosts</span><br><span class="line"><span class="meta">#</span><span class="bash">ssh -v -T git@github.com <span class="comment"># Remove hashtag at beginning of row to verify connection</span></span></span><br></pre></td></tr></table></figure>
+<p>To update the git repository VSTS first clones from GitHub into a folder named <code>drop</code>.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:mollwe/mollwe.github.io.git drop</span><br></pre></td></tr></table></figure>
-<p>Then I remove all files in repo with <code>git rm</code>.</p>
+<p>Then it removes all files in repository.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git rm -r *</span><br></pre></td></tr></table></figure>
-<p>The next step is to download the <code>drop</code> artifact into the git directory. And then I add the new files.</p>
+<p>The next step is to download the <code>drop</code> artifact into the git directory and then adding the new files.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<p>By doing this we only changes will be detected and only changes will be committed. Because the git is not configured with user we have to configure it before committing.</p>
+<p>By doing this deleted but again added identical files will not be detected as changes, only actual changes will be committed. Because of git not being automagically configured with user on the agent, it’s configured before committing. You might note that I’m using a variable from VSTS to set message for commit, variables can be added but you can also use predefined variables, look <a href="https://go.microsoft.com/fwlink?linkid=615899" target="_blank" rel="noopener">here</a>. </p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config user.email "mollwe@gmail.com"</span><br><span class="line">git config user.name "Adam Ydenius"</span><br><span class="line">git commit -m "Updated site to $(Release.ReleaseName)"</span><br></pre></td></tr></table></figure>
-<p>And finally we push the commit.</p>
+<p>And finally the commit is pushed.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h3 id="Cloudflare"><a href="#Cloudflare" class="headerlink" title="Cloudflare"></a>Cloudflare</h3><p>First I added <code>mollwe.se</code> domain to Cloadflare as a free subscription and changed name servers to cloadflare’s ones. I had to wait a while for it to go through. In my GitHub repository I went into settings and set the custom domain. Then I updated the DNS entry for my domain in Cloudflare to point to GitHub by following this <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" target="_blank" rel="noopener">guide</a>. Particulary I used <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank" rel="noopener">this</a> and is now set up like following.</p>
+<p>One thing I missed was that the <code>README.md</code> file got deleted at release. I added it to the hexo <code>source</code> folder but then it got rendered as <code>html</code>. I had to modify <code>_config.yml</code> and set <code>skip_render</code>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">skip_render: </span><br><span class="line">  - README.md</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="Cloudflare"><a href="#Cloudflare" class="headerlink" title="Cloudflare"></a>Cloudflare</h3><p>First I added <code>mollwe.se</code> domain to Cloudflare as a free subscription and changed name servers to Cloudflare’s ones. I had to wait a while for it to go through for my DNS provider, maybe a day. In my GitHub repository I went into settings and set the custom domain. Then I updated the DNS entry for my domain in Cloudflare to point to GitHub by following this <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" target="_blank" rel="noopener">guide</a>. Particulary I used <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank" rel="noopener">this</a> for an apex domain and DNS is now set up like following.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@   192.30.252.153</span><br><span class="line">@   192.30.252.154</span><br></pre></td></tr></table></figure>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Finally I have CI/CD with free hosting and SSL. Put several hours to getting this to work, hopefully it can help someone.</p>
+<p>However I noticed that the custom domain setting was reset at release and the site stopped working. I had to add a file named <code>CNAME</code> with <code>mollwe.se</code> as content and save it into the hexo <code>source</code> folder, this file was then included in each release.</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Finally I have CI/CD with free hosting and SSL. Put several hours to getting this to work, hopefully it can help someone. If I’ve have missed something or anything is unclear please post a comment below and I’ll try to amend it.</p>
 <p><a href="https://mollwe.se">https://mollwe.se</a></p>
 
   </div>
@@ -188,23 +191,20 @@
   </div>
 </footer>
 
-    <!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    
 
     <!-- Google Analytics -->
-
     <script type="text/javascript">
         (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
         ga('create', 'UA-6876801-1', 'auto');
         ga('send', 'pageview');
     </script>
 
-<!-- Disqus Comments -->
 
+    <!-- Disqus Comments -->
     <script type="text/javascript">
         var disqus_shortname = 'mollwe';
 
@@ -212,7 +212,7 @@
             var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
             dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         }());
     </script>
