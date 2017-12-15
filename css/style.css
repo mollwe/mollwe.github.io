@@ -340,8 +340,11 @@ article .content h2:before {
 
 article .content img {
   max-width: 100%;
-  height: auto;
   display: block;
+}
+
+article .content img[src] {
+  height: auto;
 }
 
 article .content p {

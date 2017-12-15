@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="During a project I had to restore a database a lot to sync database with schema and data between the developers. Due to some technical issues and that we worked">
+    <meta name="description" content="During a project I had to restore a database a lot to sync database with schema and data between the developers. Due to some technical issues and that we worked at different locations we could not sha">
 <meta name="keywords" content="sql,mssql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Drop all connections for a SQL Server database">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Adam Ydenius">
 <meta property="og:description" content="During a project I had to restore a database a lot to sync database with schema and data between the developers. Due to some technical issues and that we worked at different locations we could not sha">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-02T04:34:10.548Z">
+<meta property="og:updated_time" content="2017-12-15T01:23:31.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Drop all connections for a SQL Server database">
 <meta name="twitter:description" content="During a project I had to restore a database a lot to sync database with schema and data between the developers. Due to some technical issues and that we worked at different locations we could not sha">
@@ -144,23 +144,22 @@
 
     <!-- Google Analytics -->
     <script type="text/javascript">
-        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-6876801-1', 'auto');
-        ga('send', 'pageview');
+        if (!({ "yes": true, "1": true }[navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack] || false)) {
+            (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-6876801-1', 'auto');
+            ga('send', 'pageview');
+        }
     </script>
 
 
     <!-- Disqus Comments -->
-    <script src="/js/disqusloader.js"></script>
+    <script src="/js/disqusLazyLoad.js"></script>
     <script type="text/javascript">
-        if(typeof disqusLoader === 'undefined') 
-            return;
-
-        var disqus_shortname = 'mollwe';
-        disqusLoader('#disqus_thread', { scriptUrl: 'https://' + disqus_shortname + '.disqus.com/embed.js' });
+        if(typeof disqusLazyLoad === 'function')
+            disqusLazyLoad('mollwe');
     </script>
 
 
