@@ -353,12 +353,13 @@ article .content .img-container {
   max-width: 100%;
 }
 
-article .content .img-container img:not([src]) {
-  height: 0;
+article .content .img-container img {
+  transition: opacity 0.5s ease-in-out;
 }
 
-article .content p {
-  max-width: 39rem;
+article .content .img-container img:not([src]) {
+  height: 0;
+  opacity: 0;
 }
 
 .posttitle {
@@ -498,7 +499,8 @@ article .content p {
   color: #f99157;
 }
 
-.highlight .code .string {
+.highlight .code .string,
+.highlight .code .regexp {
   color: #8abeb7;
 }
 

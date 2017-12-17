@@ -56,16 +56,11 @@
     function loadImage(element) {
         var src = element.getAttribute('data-src');
 
-        element.style.filter = 'blur(10px)';
-        element.style.transition = 'filter .1s ease-in-out'
-
         var img = new Image();
 
         img.onload = function() {
             element.setAttribute('src', src);
             element.style.paddingTop = '';
-            element.style.height = '';
-            element.style.filter = '';
         }
         img.src = src;
     }
