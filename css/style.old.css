@@ -493,7 +493,7 @@ article .content .img-container img:not([src]) {
 
 pre {
   font-family: monospace;
-  font-size: 14px;
+  font-size: 13px;
   padding: 10px 15px;
   padding-bottom: 0;
   line-height: 22px;
