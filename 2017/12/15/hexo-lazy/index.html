@@ -7,34 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Lazy loading images and disqus in Hexo</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="shortcut icon" href="https://www.gravatar.com/avatar/ed4d99828c6260b35aad97251e030dd6?s=16" />
-  <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/ed4d99828c6260b35aad97251e030dd6?s=192" sizes="192x192" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/ed4d99828c6260b35aad97251e030dd6?s=180" />
+  <link rel="shortcut icon" href="https://www.gravatar.com/avatar/e8c51d7b8c04033a27e5bc55c154bd45?s=16" />
+  <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/e8c51d7b8c04033a27e5bc55c154bd45?s=192" sizes="192x192" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/e8c51d7b8c04033a27e5bc55c154bd45?s=180" />
   <link rel="alternate" href="/atom.xml" title="Adam Ydenius" type="application/atom+xml" />
 </head>
 <body>
-  <header id="header">
-    <a href="/">
-      <div id="logo"></div>
-      <div id="title">
-        <h1>Adam Ydenius</h1>
-        <small>...has no time for this</small>
-      </div>
-    </a>
-    <div id="nav">
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/archives/">Logs</a>
-        </li>
-        <li>
-          <a href="/codex-vitae/">Codex Vitae</a>
-        </li>
-      </ul>
-    </div>
+  <header>
+    <h1 id="title">Adam Ydenius</h1>
+    <i class="subtitle">mollwe</i>
   </header>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/archives/">Archive</a>
+      </li>
+      <li>
+        <a href="/codex-vitae/">Codex Vitae</a>
+      </li>
+    </ul>
+  </nav>
   <main>
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
@@ -170,9 +165,7 @@
             </tr>
           </table>
         </figure>
-        <h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><noscript><img src="/2017/12/15/hexo-lazy/ville-palmu-190030.jpg" title="Demo (https://unsplash.com/photos/HNc-6waMsmM)" height="2365" width="3543"></noscript>
-        <div class="img-container"
-          style="width:3543px;background:linear-gradient(rgba(163,199,207,1.0),rgba(187,210,213,1.0),rgba(191,208,209,1.0),rgba(152,168,176,1.0),rgba(118,121,120,1.0),rgba(120,96,79,1.0),rgba(124,120,116,1.0),rgba(104,102,104,1.0),rgba(97,97,103,1.0),rgba(93,90,95,1.0))"><img data-src="/2017/12/15/hexo-lazy/ville-palmu-190030.jpg" title="Demo (https://unsplash.com/photos/HNc-6waMsmM)" height="2365" width="3543" style="padding-top:66.7513406717471%"></div>
+        <h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><img src="/2017/12/15/hexo-lazy/ville-palmu-190030.jpg" title="Demo (https://unsplash.com/photos/HNc-6waMsmM)">
         <script>
           function init() {
             var image = document.querySelector('img[title^="Demo"]');
@@ -251,49 +244,10 @@
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </div>
     </div>
-    <script type="text/javascript" src="/js/imageLazyLoad.js"></script><noscript><style>.img-container { display: none !important; }</style></noscript>
   </main>
-  <footer id="footer">
-    <div class="footer-info">
-      Copyright &copy; 2018 Adam Ydenius
-    </div>
-    <div class="footer-nav">
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/archives/">Logs</a>
-          </li>
-          <li>
-            <a href="/codex-vitae/">Codex Vitae</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+  <footer>
+    <span id="copyright">Copyright &copy; 2012-2018 Adam Ydenius</span>
   </footer>
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    if (!({
-        "yes": true,
-        "1": true
-      }[navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack] || false)) {
-      (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-6876801-1', 'auto');
-      ga('send', 'pageview');
-    }
-  </script>
   <!-- Disqus Comments -->
   <script src="/js/disqusLazyLoad.js"></script>
   <script type="text/javascript">

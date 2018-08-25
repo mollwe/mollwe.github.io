@@ -7,34 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Hello Hexo - Setup with Visual Studio Team Services CI/CD, GitHub pages and Cloudflare</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="shortcut icon" href="https://www.gravatar.com/avatar/ed4d99828c6260b35aad97251e030dd6?s=16" />
-  <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/ed4d99828c6260b35aad97251e030dd6?s=192" sizes="192x192" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/ed4d99828c6260b35aad97251e030dd6?s=180" />
+  <link rel="shortcut icon" href="https://www.gravatar.com/avatar/e8c51d7b8c04033a27e5bc55c154bd45?s=16" />
+  <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/e8c51d7b8c04033a27e5bc55c154bd45?s=192" sizes="192x192" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/e8c51d7b8c04033a27e5bc55c154bd45?s=180" />
   <link rel="alternate" href="/atom.xml" title="Adam Ydenius" type="application/atom+xml" />
 </head>
 <body>
-  <header id="header">
-    <a href="/">
-      <div id="logo"></div>
-      <div id="title">
-        <h1>Adam Ydenius</h1>
-        <small>...has no time for this</small>
-      </div>
-    </a>
-    <div id="nav">
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/archives/">Logs</a>
-        </li>
-        <li>
-          <a href="/codex-vitae/">Codex Vitae</a>
-        </li>
-      </ul>
-    </div>
+  <header>
+    <h1 id="title">Adam Ydenius</h1>
+    <i class="subtitle">mollwe</i>
   </header>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/archives/">Archive</a>
+      </li>
+      <li>
+        <a href="/codex-vitae/">Codex Vitae</a>
+      </li>
+    </ul>
+  </nav>
   <main>
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
@@ -149,9 +144,7 @@
         </figure>
         <p>Next step was to setup continuous integration in VSTS. Created by going to <code>Build and Release -&gt; Builds -&gt; New</code>. My configuration looks like below.</p>
         <p>
-          <div id="BuildConfiguration"></div><br><noscript><img src="/2017/11/27/hello-hexo/build-configuration.png" title="Build configuration" height="644" width="647"></noscript>
-          <div class="img-container" style="width:647px;background:linear-gradient(rgba(98,159,207,1.0),rgba(248,248,248,1.0),rgba(249,249,249,1.0),rgba(246,246,246,1.0),rgba(246,246,246,1.0),rgba(249,248,248,1.0),rgba(252,249,249,1.0),rgba(246,245,245,1.0),rgba(249,249,249,1.0),rgba(220,232,243,1.0))"><img data-src="/2017/11/27/hello-hexo/build-configuration.png" title="Build configuration" height="644" width="647" style="padding-top:99.53632148377125%"></div>
-        </p>
+          <div id="BuildConfiguration"></div><br><img src="/2017/11/27/hello-hexo/build-configuration.png" title="Build configuration"></p>
         <p>It basically does this:</p>
         <figure class="highlight shell">
           <table>
@@ -166,9 +159,7 @@
         <p>So now it builds automatically on new pushes to <code>master</code> branch. Next up was continuous delivery. I had a release configuration made <code>Build and Release -&gt; Releases</code>. Added <code>mollwhexo-CI</code> (the result from build)
           as an artifact and then set up a new environment for GitHub. The commands in this release configuration is run with the <code>Hosted Linux (Preview)</code> agent queue so you know.</p>
         <p>
-          <div id="ReleaseConfiguration"></div><br><noscript><img src="/2017/11/27/hello-hexo/release-configuration.png" title="Release configuration" height="759" width="642"></noscript>
-          <div class="img-container" style="width:642px;background:linear-gradient(rgba(126,175,213,1.0),rgba(247,247,247,1.0),rgba(239,244,249,1.0),rgba(250,250,250,1.0),rgba(244,244,244,1.0),rgba(241,241,241,1.0),rgba(248,248,248,1.0),rgba(244,244,244,1.0),rgba(222,230,238,1.0),rgba(242,244,245,1.0))"><img data-src="/2017/11/27/hello-hexo/release-configuration.png" title="Release configuration" height="759" width="642" style="padding-top:118.22429906542055%"></div>
-        </p>
+          <div id="ReleaseConfiguration"></div><br><img src="/2017/11/27/hello-hexo/release-configuration.png" title="Release configuration"></p>
         <p>Now, everytime the a build is performed a deployment to GitHub Pages also follows.</p>
         <h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3>
         <p>A GitHub page for my user was set up by creating a repo named <code>mollwe.github.io</code> (<a href="https://github.com/mollwe/mollwe.github.io" target="_blank" rel="noopener">repo</a>). To be able to push from VSTS I added a deploy key. First
@@ -289,49 +280,10 @@
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </div>
     </div>
-    <script type="text/javascript" src="/js/imageLazyLoad.js"></script><noscript><style>.img-container { display: none !important; }</style></noscript>
   </main>
-  <footer id="footer">
-    <div class="footer-info">
-      Copyright &copy; 2018 Adam Ydenius
-    </div>
-    <div class="footer-nav">
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/archives/">Logs</a>
-          </li>
-          <li>
-            <a href="/codex-vitae/">Codex Vitae</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+  <footer>
+    <span id="copyright">Copyright &copy; 2012-2018 Adam Ydenius</span>
   </footer>
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-    if (!({
-        "yes": true,
-        "1": true
-      }[navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack] || false)) {
-      (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-6876801-1', 'auto');
-      ga('send', 'pageview');
-    }
-  </script>
   <!-- Disqus Comments -->
   <script src="/js/disqusLazyLoad.js"></script>
   <script type="text/javascript">
