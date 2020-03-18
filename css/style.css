@@ -185,12 +185,12 @@ nav ul li:last-child a {
   margin-right: 0;
 }
 
-body>header {
+body > header {
   width: 100%;
   margin: 0;
 }
 
-body>header h1 {
+body > header h1 {
   letter-spacing: 0.01em;
   font-size: 1.5em;
   line-height: 2em;
@@ -203,7 +203,7 @@ body>header h1 {
   -webkit-font-smoothing: antialiased;
 }
 
-body>header .subtitle {
+body > header .subtitle {
   margin-left: 1em;
   position: relative;
   top: -0.5em;
@@ -310,6 +310,20 @@ article .content img {
   max-width: 100%;
   display: block;
   height: auto;
+}
+
+article .content .img-container {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+article .content .img-container img {
+  transition: opacity 0.5s ease-in-out;
+}
+
+article .content .img-container img:not([src]) {
+  height: 0;
+  opacity: 0;
 }
 
 .posttitle {
@@ -432,6 +446,6 @@ code {
   height: 22px;
 }
 
-body>* {
+body > * {
   padding: 0 1em;
 }

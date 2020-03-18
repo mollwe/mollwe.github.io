@@ -1,69 +1,69 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
+    function imageLazyLoad() {
+        var elements = document.querySelectorAll('img[data-src]');
 
-  function imageLazyLoad() {
-    var elements = document.querySelectorAll('img[data-src]');
-
-    if (!elements.length) {
-      return;
-    }
-
-    if (typeof IntersectionObserver !== 'undefined') {
-      var observer = new IntersectionObserver(function(entries, observer) {
-        entries.filter(function(entry) {
-          return entry.isIntersecting;
-        }).forEach(function(entry) {
-          loadImage(entry.target);
-          observer.unobserve(entry.target);
-        });
-      });
-
-      elements.forEach(function(element) {
-        observer.observe(element);
-      });
-    } else {
-      var timeout;
-      var verify = function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-          elements = elements.filter(function(element) {
-            return !element.src;
-          });
-
-          if (!elements.length) {
-            window.removeEventListener('scroll', verify);
-            window.removeEventListener('resize', verify);
+        if (!elements.length) {
             return;
-          }
+        }
 
-          elements.filter(function(element) {
-            var position = element.getBoundingClientRect().top;
+        if (typeof IntersectionObserver !== 'undefined') {
+            var observer = new IntersectionObserver(function (entries, observer) {
+                entries.filter(function (entry) {
+                    return entry.isIntersecting;
+                }).forEach(function (entry) {
+                    loadImage(entry.target);
+                    observer.unobserve(entry.target);
+                });
+            });
 
-            if (position < window.innerHeight) {
-              loadImage(element);
-            }
-          })
-        }, 50);
-      };
+            elements.forEach(function (element) {
+                observer.observe(element);
+            });
+        }
+        else {
+            var timeout;
+            var verify = function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    elements = elements.filter(function (element) {
+                        return !element.src;
+                    });
 
-      window.addEventListener('scroll', verify);
-      window.addEventListener('resize', verify);
+                    if (!elements.length) {
+                        window.removeEventListener('scroll', verify);
+                        window.removeEventListener('resize', verify);
+                        return;
+                    }
 
-      verify();
+                    elements.filter(function (element) {
+                        var position = element.getBoundingClientRect().top;
+
+                        if (position < window.innerHeight) {
+                            loadImage(element);
+                        }
+                    })
+                }, 50);
+            };
+
+            window.addEventListener('scroll', verify);
+            window.addEventListener('resize', verify);
+
+            verify();
+        }
     }
-  }
 
-  function loadImage(element) {
-    var src = element.getAttribute('data-src');
+    function loadImage(element) {
+        var src = element.getAttribute('data-src');
 
-    var img = new Image();
+        var img = new Image();
 
-    img.onload = function() {
-      element.setAttribute('src', src);
-      element.style.paddingTop = '';
+        img.onload = function() {
+            element.setAttribute('src', src);
+            element.style.paddingTop = '';
+        }
+        img.src = src;
     }
-    img.src = src;
-  }
 
-  document.addEventListener('DOMContentLoaded', imageLazyLoad, false);
+    document.addEventListener('DOMContentLoaded', imageLazyLoad, false);
 })();

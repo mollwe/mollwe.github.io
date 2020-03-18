@@ -1,57 +1,57 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
+    function disqusLazyLoad(shortname) {
+        var element = document.querySelector('#disqus_thread');
 
-  function disqusLazyLoad(shortname) {
-    var element = document.querySelector('#disqus_thread');
-
-    if (!element) {
-      return;
-    }
-
-    element.style.minHeight = '330px';
-
-    if (typeof IntersectionObserver !== 'undefined') {
-      var observer = new IntersectionObserver(function(entries, observer) {
-        var intersectingEntries = entries.filter(function(entry) {
-          return entry.isIntersecting;
-        });
-
-        if (intersectingEntries.length) {
-          embedDisqus(shortname);
-          observer.disconnect();
+        if (!element) {
+            return;
         }
-      });
 
-      observer.observe(element);
-    } else {
-      var timeout;
-      var verify = function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-          var position = element.getBoundingClientRect().top;
+        element.style.minHeight = '330px';
 
-          if (position < window.innerHeight) {
-            embedDisqus(shortname);
-            window.removeEventListener('scroll', verify);
-            window.removeEventListener('resize', verify);
-          }
-        }, 50);
-      };
+        if (typeof IntersectionObserver !== 'undefined') {
+            var observer = new IntersectionObserver(function (entries, observer) {
+                var intersectingEntries = entries.filter(function (entry) {
+                    return entry.isIntersecting;
+                });
 
-      window.addEventListener('scroll', verify);
-      window.addEventListener('resize', verify);
+                if (intersectingEntries.length) {
+                    embedDisqus(shortname);
+                    observer.disconnect();
+                }
+            });
 
-      verify();
+            observer.observe(element);
+        }
+        else {
+            var timeout;
+            var verify = function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    var position = element.getBoundingClientRect().top;
+
+                    if (position < window.innerHeight) {
+                        embedDisqus(shortname);
+                        window.removeEventListener('scroll', verify);
+                        window.removeEventListener('resize', verify);
+                    }
+                }, 50);
+            };
+
+            window.addEventListener('scroll', verify);
+            window.addEventListener('resize', verify);
+
+            verify();
+        }
     }
-  }
 
-  function embedDisqus(shortname) {
-    var script = document.createElement('script');
-    script.src = 'https://' + shortname + '.disqus.com/embed.js';
-    script.async = true;
-    script.setAttribute('data-timestamp', +new Date());
-    document.body.appendChild(script);
-  }
+    function embedDisqus(shortname) {
+        var script = document.createElement('script');
+        script.src = 'https://' + shortname + '.disqus.com/embed.js';
+        script.async = true;
+        script.setAttribute('data-timestamp', +new Date());
+        document.body.appendChild(script);
+    }
 
-  window.disqusLazyLoad = disqusLazyLoad;
+    window.disqusLazyLoad = disqusLazyLoad;
 })();
